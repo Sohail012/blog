@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article.user_id = current_user.id
 		@article.save
 		redirect_to articles_path
 	end
@@ -14,7 +15,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
-    	@articles = Article.all
+		
+    	@articles = current_user.articles
   	end
 
 	def edit
@@ -37,7 +39,7 @@ class ArticlesController < ApplicationController
     @article.destroy
  
     redirect_to articles_path
-  end
+  	end
 
   	private
   		def article_params

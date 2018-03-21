@@ -11,26 +11,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-
-  #   protect_from_forgery with: :exception
-  # before_action :authorize
-
-  # def authorize
-  #     if current_user.present?
-  #       if current_user.has_role? :admin
-  #         redirect_to admin_index_path
-  #         # render plain:"No access for you!"
-  #       else
-  #         redirect_to root_path
-  #       end
-  #   end
-  # end
-
-    # if user.has_role :admin
-
-    #   redirect_to new_user_registration_path
-      
-    # end
     @user = User.find_by_email(params[:user][:email])
     if @user.present?
       if @user.valid_password?(params[:user][:password])

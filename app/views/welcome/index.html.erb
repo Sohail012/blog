@@ -5,12 +5,14 @@
 
 	<h2> <%= current_user.email%> You are logged in  </h2>
 	<%= link_to 'Logout' , destroy_user_session_path, method: :delete %>
+
+	<%= link_to 'Create-Article' , new_article_path %>
+
 <%else%>
 	<h2> You are not logged in, Please log in</h2>
 	<%= link_to 'signin' , new_user_session_path %>
 
 	<%= link_to 'signup' , new_user_registration_path %>
-
 
 <%end%>
 

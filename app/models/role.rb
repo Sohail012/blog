@@ -20,9 +20,4 @@ rolify :before_add => :before_add_method
     user = User.find(1)
     user.add_role :admin
   end
-
-
-  # def assign_default_role
-  #   self.add_role(:newuser) if self.roles.blank?
-  # end
 end

@@ -11,23 +11,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-     # super
+     super
      
      
 
-    @user = User.where(email: params[:user][:email])
-    if @user.present?
-      redirect_back(fallback_location: root_path)
+  #   @user = User.where(email: params[:user][:email])
+  #   if @user.present?
+  #     redirect_back(fallback_location: root_path)
+     
 
-    else
-      if params[:user][:password] == params[:user][:password_confirmation]
-        @user = User.create(name: params[:user][:name], age: params[:user][:age], email: params[:user][:email], password: params[:user][:password] )
-        sign_in @user
-        redirect_to :root
-      else
-        redirect_back(fallback_location: root_path)
-      end
-    end
+  #   else
+  #     if   params[:user][:password] == params[:user][:password_confirmation]
+  #       @user = User.create(name: params[:user][:name], age: params[:user][:age], email: params[:user][:email], password: params[:user][:password] )
+  #       sign_in @user
+  #       redirect_to welcome_index_path
+  #     else
+  #       redirect_back(fallback_location: root_path)
+  #     end
+  #   end
 
   end
 
